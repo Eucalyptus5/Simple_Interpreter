@@ -9,8 +9,10 @@ fn main() {
         .read_line(&mut input)
         .expect("Failed to read line");
     let mut input = input.trim().chars().peekable();
-    let result = parse_computation(&mut input);
-    println!("Result: {}", result);
+    while input.peek().is_some() {
+        let result = parse_computation(&mut input);
+        println!("Result: {}", result);
+    }
 }
 
 fn parse_computation(input: &mut Peekable<Chars>) -> i32 {
